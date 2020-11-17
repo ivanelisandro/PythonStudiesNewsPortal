@@ -1,0 +1,15 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    IS_RELEASE_SERVER = ...
+    DEBUG = ...
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/6659#comment
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/6659#comment">JetBrains
+    Academy</a></html>
+  time: Sun, 15 Nov 2020 01:33:46 UTC
+record: -1
