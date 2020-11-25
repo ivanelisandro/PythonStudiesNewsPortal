@@ -1,0 +1,17 @@
+type: code
+custom_name: Happy birthday!
+files:
+- name: main.py
+  visible: true
+  text: |-
+    import datetime
+
+    # create birthday here
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/7328#comment
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/7328#comment">JetBrains
+    Academy</a></html>
+  time: Sat, 21 Nov 2020 19:39:29 UTC
+record: -1

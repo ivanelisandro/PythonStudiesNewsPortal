@@ -1,0 +1,13 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: print(...)
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/6881#comment
+status: Solved
+feedback:
+  message: <html>Correct solution<br/><br/>Continue on <a href="https://hyperskill.org/learn/step/6881#comment">JetBrains
+    Academy</a></html>
+  time: Mon, 23 Nov 2020 22:52:49 UTC
+record: -1
