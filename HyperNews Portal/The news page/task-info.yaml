@@ -1114,7 +1114,10 @@ files:
     if __name__ == '__main__':
         HyperNewsTestRunner('hypernews.manage').run_tests()
   learner_created: false
-- name: news.json
+- name: hypernews/news/templates/news/index.html
+  visible: true
+  learner_created: true
+- name: hypernews/news/news.json
   visible: true
   text: '[{"created": "2020-02-09 14:15:10", "text": "Text of the news 1", "title":
     "News 1", "link": 1}, {"created": "2020-02-10 14:15:10", "text": "Text of the
@@ -1122,5 +1125,9 @@ files:
     "Text of the news 3", "title": "News 3", "link": 3}]'
   learner_created: true
 feedback_link: https://hyperskill.org/projects/102/stages/562/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations! Continue on <a href="https://hyperskill.org/projects/102/stages/562/implement">JetBrains
+    Academy</a>
+  time: Sat, 28 Nov 2020 00:21:45 UTC
 record: -1
