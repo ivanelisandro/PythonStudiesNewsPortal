@@ -1121,6 +1121,53 @@ files:
     if __name__ == '__main__':
         HyperNewsTestRunner('hypernews.manage').run_tests()
   learner_created: false
+- name: hypernews/news/templates/news/index.html
+  visible: true
+  text: |
+    {% extends "news/base.html" %}
+    {% block content %}
+      {% for group in groups %}
+        <h4>{{ group.date | date:"Y-m-d" }}</h4>
+
+        <ul>
+          {% for article in group.articles %}
+            <li><a href="/news/{{ article.link }}/">{{ article.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endfor %}
+
+      <a target="_blank" href="/news/create/">Add a new article...</a>
+    {% endblock %}
+  learner_created: true
+- name: hypernews/news/templates/news/article.html
+  visible: true
+  text: |
+    {% extends "news/base.html" %}
+    {% block content %}
+      <h2>{{ article.title }}</h2>
+      <p>{{ article.created }}</p>
+      <p>{{ article.text }}</p>
+
+      <a href="/news/">Return to Main Page...</a>
+    {% endblock %}
+  learner_created: true
+- name: hypernews/news/templates/news/base.html
+  visible: true
+  text: |
+    <html>
+      <body>
+        <h2>Hyper news</h2>
+        {% block content %} No content {% endblock %}
+      </body>
+    </html>
+  learner_created: true
+- name: hypernews/news/news.json
+  visible: true
+  text: '[{"created": "2020-02-09 14:15:10", "text": "Text of the news 1", "title":
+    "News 1", "link": 1}, {"created": "2020-02-10 14:15:10", "text": "Text of the
+    news 2", "title": "News 2", "link": 2}, {"created": "2020-02-09 16:15:10", "text":
+    "Text of the news 3", "title": "News 3", "link": 3}]'
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/102/stages/564/implement#comment
 status: Unchecked
 record: -1
