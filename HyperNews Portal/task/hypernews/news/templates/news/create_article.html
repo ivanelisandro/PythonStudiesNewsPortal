@@ -1,0 +1,15 @@
+{% extends "news/base.html" %}
+{% block content %}
+  <form action="/news/create/" method="post">
+    {% csrf_token %}
+    <p>Article Title:</p>
+    <input id="title" type="text" name="title">
+    <br>
+    <p>Article Text:</p>
+    <input id="text" type="text" name="text">
+    <br>
+    <button type="submit">Submit article</button>
+  </form>
+
+  <a href="/news/">Return to Main Page...</a>
+{% endblock %}
