@@ -1,0 +1,17 @@
+type: code
+files:
+- name: main.py
+  visible: true
+  text: |-
+    template = """
+    <html>
+      <audio src="{{ ... }}"></audio>
+    </html>
+    """
+  learner_created: false
+feedback_link: https://hyperskill.org/learn/step/10058#comment
+status: Solved
+feedback:
+  message: <html>Correct solution</html>
+  time: Mon, 14 Dec 2020 02:03:44 UTC
+record: -1
