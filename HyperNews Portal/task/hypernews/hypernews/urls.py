@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path, re_path
 from news.views import ComingSoonView, NewsView, ArticleView, CreateArticleView
 
@@ -22,3 +24,5 @@ urlpatterns = [
     path('news/create/', CreateArticleView.as_view()),
     re_path('news/(?P<article_id>\d+)/?', ArticleView.as_view())
 ]
+
+urlpatterns += static(settings.STATIC_URL)

@@ -2,14 +2,14 @@
 {% block content %}
   <form action="/news/create/" method="post">
     {% csrf_token %}
-    <p>Article Title:</p>
-    <input id="title" type="text" name="title">
+    <p class="field_label">Article Title:</p>
+    <input id="title" type="text" name="title" class="new_article">
     <br>
-    <p>Article Text:</p>
-    <input id="text" type="text" name="text">
+    <p class="field_label">Article Text:</p>
+    <textarea id="text" type="text" name="text" class="new_article"></textarea>
     <br>
-    <button type="submit">Submit article</button>
+    <button type="submit" class="article_button">Submit article</button>
   </form>
 
-  <a href="/news/">Return to Main Page...</a>
+  <a class="highlight_link" href="/news/">Return to Main Page...</a>
 {% endblock %}

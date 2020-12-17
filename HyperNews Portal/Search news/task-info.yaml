@@ -1199,5 +1199,8 @@ files:
     "Text of the news 3", "title": "News 3", "link": 3}]'
   learner_created: true
 feedback_link: https://hyperskill.org/projects/102/stages/565/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Wed, 16 Dec 2020 23:56:50 UTC
 record: -1

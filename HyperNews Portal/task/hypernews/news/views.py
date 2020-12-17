@@ -1,5 +1,5 @@
 from django.conf import settings
-from django.http import HttpResponse, Http404
+from django.http import Http404
 from django.views import View
 from django.shortcuts import render, redirect
 from datetime import datetime
@@ -31,6 +31,33 @@ class Journal:
             for article in _news:
                 self.include_article(article)
 
+    def filtered_news(self, search):
+        _filtered = {}
+        for date, info in self.date_groups.items():
+            for item in info["articles"]:
+                if search in item["title"]:
+                    if date not in _filtered.keys():
+                        _filtered[date] = {}
+                    _filtered[date]["date"] = info["date"]
+                    if "articles" not in _filtered[date].keys():
+                        _filtered[date]["articles"] = []
+                    _filtered[date]["articles"].append(item)
+        return _filtered
+
+    def ordered_filtered_news(self, search):
+        if search is None or search == "":
+            return self.ordered_news()
+        else:
+            filtered = self.filtered_news(search)
+            ordered = OrderedDict(sorted(
+                filtered.items(), key=lambda x: datetime.strptime(x[0], '%Y-%m-%d'), reverse=True))
+            return ordered.values()
+
+    def ordered_news(self):
+        ordered = OrderedDict(sorted(
+            self.date_groups.items(), key=lambda x: datetime.strptime(x[0], '%Y-%m-%d'), reverse=True))
+        return ordered.values()
+
     def generate_link(self):
         _link = random.randint(1, 999999)
 
@@ -58,7 +85,9 @@ journal.load_news()
 
 class ComingSoonView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse("Coming soon")
+        # Previous implementation
+        # return HttpResponse("Coming soon")
+        return redirect('/news/')
 
 
 class MainPageView(View):
@@ -68,10 +97,8 @@ class MainPageView(View):
 
 class NewsView(View):
     def get(self, request, *args, **kwargs):
-        ordered = OrderedDict(sorted(
-            journal.date_groups.items(), key=lambda x: datetime.strptime(x[0], '%Y-%m-%d'), reverse=True))
-
-        context = {"groups": ordered.values()}
+        search = request.GET.get('q')
+        context = {"groups": journal.ordered_filtered_news(search)}
         return render(request, "news/index.html", context=context)
 
 

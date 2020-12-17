@@ -1,5 +1,12 @@
 {% extends "news/base.html" %}
 {% block content %}
+  <form action="/news/" method="get">
+    {% csrf_token %}
+    <p>Search for an article:</p>
+    <input id="q" type="text" name="q">
+    <button type="submit">Search now</button>
+  </form>
+
   {% for group in groups %}
     <h4>{{ group.date | date:"Y-m-d" }}</h4>
 
@@ -10,5 +17,5 @@
     </ul>
   {% endfor %}
 
-  <a target="_blank" href="/news/create/">Add a new article...</a>
+  <a class="highlight_link" target="_blank" href="/news/create/">Add a new article...</a>
 {% endblock %}

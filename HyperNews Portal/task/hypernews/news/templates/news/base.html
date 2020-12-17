@@ -1,5 +1,8 @@
 <html>
   <body>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
     <h2>Hyper news</h2>
     {% block content %} No content {% endblock %}
   </body>
